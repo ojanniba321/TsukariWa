@@ -2,7 +2,7 @@ import { Client, Message } from "@open-wa/wa-automate";
 
 export = {
     name:"addtags",
-    description: "addtags (ownerOnly)",
+    description: "addtags",
     execute: async (Message: Message, args: string[],client:Client) => {
         if(Message.fromMe){
             let Data = await import("../../util/GlobalVar")
@@ -11,8 +11,6 @@ export = {
                 reply: args.join(" ").replace(args[0],""),
             })
             client.reply(Message.chatId, "Tag has been added",Message.id)
-        }else{
-            client.reply(Message.chatId, "Only the owner can use this command",Message.id)
         }
     }
 }
